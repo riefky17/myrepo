@@ -1,0 +1,22 @@
+plugins { id 'com.android.application' version '8.5.2' }
+
+android {
+    namespace 'com.riefk.youtubeplayer'
+    compileSdk 35
+    defaultConfig {
+        applicationId 'com.riefk.youtubeplayer'
+        minSdk 23            // preferredDisplayModeId (4K mode) needs API 23; Chromecast with Google TV is API 29+
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+    }
+    buildTypes {
+        // ponytail: signed with the debug key so it can be sideloaded right away. Use a real keystore for Play Store.
+        release { minifyEnabled false; signingConfig signingConfigs.debug }
+    }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+}
+
+dependencies {
+    implementation 'androidx.webkit:webkit:1.12.1' // addDocumentStartJavaScript: run adblock.js before YouTube's scripts
+}

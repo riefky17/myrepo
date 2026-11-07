@@ -1,0 +1,10 @@
+﻿{
+  "name": "youtube-player",
+  "productName": "YouTube Player",
+  "version": "1.0.0",
+  "description": "Desktop player for youtube.com with Cloudflare DNS and auto-next",
+  "main": "main.js",
+  "scripts": { "start": "electron ." },
+  "dependencies": { "@ghostery/adblocker-electron": "^2.20.1" },
+  "devDependencies": { "electron": "33.4.11" }
+}
