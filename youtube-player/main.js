@@ -115,13 +115,14 @@ function findAccel(key, items = Menu.getApplicationMenu()?.items || []) {
 function createWindow(url = HOME) {
   win = new BrowserWindow({
     ...(cfg.fullscreen ? { ...portraitBounds(), frame: false, resizable: false } : { width: 1100, height: 900 }),
-    title: 'YouTube Player', backgroundColor: '#111',
+    title: 'Mbub Player powered by Youtube Music', backgroundColor: '#111',
     icon: path.join(__dirname, 'icon.ico'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'), partition: PARTITION,
       backgroundThrottling: false, autoplayPolicy: 'no-user-gesture-required',
     },
   });
+  win.on('page-title-updated', e => e.preventDefault()); // keep the app name instead of the YouTube page title
   win.loadURL(url);
   win.webContents.on('before-input-event', (e, i) => {
     if (i.type !== 'keyDown' || !/^F\d+$/.test(i.key)) return;

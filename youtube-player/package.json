@@ -1,8 +1,8 @@
 ﻿{
   "name": "youtube-player",
-  "productName": "YouTube Player",
+  "productName": "Mbub Player",
   "version": "1.0.0",
-  "description": "Desktop player for youtube.com with Cloudflare DNS and auto-next",
+  "description": "Mbub Player powered by Youtube Music - desktop player with Cloudflare DNS and auto-next",
   "main": "main.js",
   "scripts": { "start": "electron ." },
   "dependencies": { "@ghostery/adblocker-electron": "^2.20.1" },
